@@ -1,6 +1,8 @@
 
+/* Mobile First */
+
 .attribution {
-  font-size: 1.1rem; text-align: center;
+  font-size: 1.3rem; text-align: center;
 }
 
 .attribution a {
@@ -8,13 +10,13 @@
 }
 
 :root {
-  /* Variables for colors */
+  /* Color variables */
   --white: hsl(0, 0%, 100%);
   --black: hsl(0, 0%, 7%);
   --dark-blue: hsl(219, 29%, 14%);
   --grey-100: hsl(214, 17%, 92%);
   --grey-200: hsl(0, 0%, 81%);
-  --grey-300: hsl(216, 9%, 67%);
+  --grey-300: hsl(216, 9%, 67%); /* grey300 wasn't in the design system, but it was used in the mockup as a variable, so I added it */
   --grey-400: hsl(224, 10%, 45%);
   --grey-500: hsl(217, 19%, 35%);
   --purple-50: hsl(260, 100%, 95%);
@@ -29,7 +31,7 @@
 }
 
 html {
-  font-size: 62.5%;
+  font-size: 62.5%; /* now 1rem = 10px */
 }
 
 body {
@@ -56,7 +58,7 @@ body {
   font-display: swap;
 }
 
-/* for h1 */
+/* for h1 (to make h1 invisible but screen readers can read it) */
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -85,11 +87,10 @@ body {
   "jonathan"
   "jeanette"
   "patrick"
-  "kira"
-  ;
+  "kira";
   gap: 32px;
-  margin-top: 73px;
-  margin-bottom: 73px;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
 }
 
 .card {
@@ -108,7 +109,7 @@ body {
   height: 28px;
   width: 28px;
   border-radius: 50%;
-  margin-right: 16px;
+  margin-right: 18px;
 }
 
 .card__student-name { 
@@ -144,124 +145,113 @@ body {
 
 
 
-
-
-/* Modifiers */
-
+/* Modifiers for cards */
 .card--daniel {
   height: 450px;
   background-color: var(--purple-500);
   grid-area: daniel;
 }
-
 .card--jonathan {
   height: 246px;
   background-color: var(--grey-500);
   grid-area: jonathan;
 }
-
 .card--jeanette {
   height: 226px;
   background-color: var(--white);
   grid-area: jeanette;
 }
-
 .card--patrick {
   height: 414px;
   background-color: var(--dark-blue);
   grid-area: patrick;
 }
-
 .card--kira {
   height: 503px;
   background-color: var(--white);
   grid-area: kira;
 }
+/****************/
 
 
 
-
-
+/* Modifiers for photos of students */
 .card__student-photo--purple-border {
   border: 2px solid rgb(167, 117, 241);
   box-sizing: content-box;
-  margin-right: 13px;
+  margin-right: 14px;
 }
-
 .card__student-photo--purple500-border {
   border: 2px solid var(--purple-500);
   box-sizing: content-box;
-  margin-right: 13px;
+  margin-right: 14px;
 }
+/****************/
 
 
 
+/* Modifiers for names of students */
 .card__student-name--white {
   color: var(--white);
 }
+.card__student-name--grey500 {
+  color: var(--grey-500);
+}
+/****************/
 
 
 
-
-
-
-
+/* Modifiers for the "verified graduate" text */
 .card__verified-graduate--purple50 {
   color: var(--purple-50);
 }
-
-.card__review-text2--purple50 {
-  color: var(--purple-50);
-}
-
-/* Чо? */
 .card__verified-graduate--grey-300 {
   color: var(--grey-300);
 }
+.card__verified-graduate--grey400 {
+  color: var(--grey-400);
+}
+.card__verified-graduate--white {
+  color: var(--white);
+}
+/****************/
 
+
+
+/* Modifiers for the FIRST review text */
 .card__review-text1--white {
   color: var(--white);
 }
-
+.card__review-text1--grey500 {
+  color: var(--grey-500);
+}
 .card__review-text1--high-z-index {
   position: relative;
   z-index: 30;
 }
-
-.card__review-text2--grey100 {
-  color: var(--grey-100);
-}
-
-.card__student-name--grey500 {
-  color: var(--grey-500);
-}
-
-.card__review-text1--grey500 {
-  color: var(--grey-500);
-}
-
-.card__verified-graduate--grey400 {
-  color: var(--grey-400);
-}
-
-.card__review-text2--grey400 {
-  color: var(--grey-400);
-}
-
-.card__verified-graduate--white {
-  color: var(--white);
-}
-
 .card__review-text1--grey200 {
   color: var(--grey-200);
 }
+/****************/
 
 
 
+/* Modifiers for the SECOND review text */
+.card__review-text2--purple50 {
+  color: var(--purple-50);
+}
+.card__review-text2--grey100 {
+  color: var(--grey-100);
+}
+.card__review-text2--grey400 {
+  color: var(--grey-400);
+}
+/****************/
 
 
-@media /*change*/(min-width: 800px) {
-  .grid-container/*change*/ {
+
+@media (min-width: 710px) {
+  .grid-container {
     width: 647px;
     height: 1157px;
     grid-template-columns: 307.5px 307.5px;
@@ -271,8 +261,6 @@ body {
     "jonathan jeanette"
     "patrick patrick"
     "kira kira";
-    margin-top: 83px;
-    margin-bottom: 113px;
   }
 
   .card--daniel {
@@ -306,23 +294,22 @@ body {
     width: 647px;
     height: 275px;
   }
-
 }
 
-@media (min-width: 1400px) {
-
-  .grid-container/*change*/ {
+@media (min-width: 1200px) {
+  .grid-container {
     width: 1114px;
     height: 582px;
     grid-template-columns: 255px 253px 255px 255px;
     grid-template-rows: repeat(2, auto);
-    /*grid-template-rows: 288px 270px;*/
     grid-template-areas: 
     "daniel daniel jonathan kira"
     "jeanette patrick patrick kira";
     row-gap: 24px;
-    margin-top: 229px;
-    margin-bottom: 218px;
+  }
+
+  .card__student-photo {
+    margin-right: 16px;
   }
 
   .card--daniel {
@@ -352,6 +339,12 @@ body {
     width: 255px;
     height: 582px;
   }
+
+  .card__student-photo--purple-border {
+    margin-right: 12px;
+  }
+
+  .card__student-photo--purple500-border {
+    margin-right: 12px;
+  }
 }
-
-
