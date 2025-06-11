@@ -1,4 +1,11 @@
 
+.attribution {
+  font-size: 1.1rem; text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
 
 :root {
   /* Variables for colors */
@@ -19,6 +26,10 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html {
+  font-size: 62.5%;
 }
 
 body {
@@ -68,8 +79,17 @@ body {
   display: grid;
   width: 305px;
   grid-template-columns: 305px;
-  grid-template-rows: auto;
+  grid-template-rows: repeat(5, auto);
+  grid-template-areas: 
+  "daniel"
+  "jonathan"
+  "jeanette"
+  "patrick"
+  "kira"
+  ;
   gap: 32px;
+  margin-top: 73px;
+  margin-bottom: 73px;
 }
 
 .card {
@@ -88,25 +108,25 @@ body {
   height: 28px;
   width: 28px;
   border-radius: 50%;
-  margin-right: 18px;
+  margin-right: 16px;
 }
 
 .card__student-name { 
   font-weight: 500;
-  font-size: 13px;
+  font-size: 1.3rem;
   line-height: 110%;
   margin-bottom: 5px;
 }
 
 .card__verified-graduate {
   font-weight: 500;
-  font-size: 11px;
+  font-size: 1.1rem;
   line-height: 110%;
 }
 
 .card__review-text1 {
   font-weight: 600;
-  font-size: 20px;
+  font-size: 2rem;
   line-height: 120%;
   margin-top: 16px;
   margin-bottom: 16px;
@@ -114,9 +134,16 @@ body {
 
 .card__review-text2 { 
   font-weight: 500;
-  font-size: 13px;
+  font-size: 1.3rem;
   line-height: 140%;
 }
+
+.card__quotes-decoration {
+  display: none;
+}
+
+
+
 
 
 /* Modifiers */
@@ -124,7 +151,6 @@ body {
 .card--daniel {
   height: 450px;
   background-color: var(--purple-500);
-  margin-top: 73px;
   grid-area: daniel;
 }
 
@@ -149,9 +175,9 @@ body {
 .card--kira {
   height: 503px;
   background-color: var(--white);
-  margin-bottom: 73px;
   grid-area: kira;
 }
+
 
 
 
@@ -159,7 +185,26 @@ body {
 .card__student-photo--purple-border {
   border: 2px solid rgb(167, 117, 241);
   box-sizing: content-box;
+  margin-right: 13px;
 }
+
+.card__student-photo--purple500-border {
+  border: 2px solid var(--purple-500);
+  box-sizing: content-box;
+  margin-right: 13px;
+}
+
+
+
+.card__student-name--white {
+  color: var(--white);
+}
+
+
+
+
+
+
 
 .card__verified-graduate--purple50 {
   color: var(--purple-50);
@@ -169,10 +214,6 @@ body {
   color: var(--purple-50);
 }
 
-.card__student-name--white {
-  color: var(--white);
-}
-
 /* Чо? */
 .card__verified-graduate--grey-300 {
   color: var(--grey-300);
@@ -180,6 +221,11 @@ body {
 
 .card__review-text1--white {
   color: var(--white);
+}
+
+.card__review-text1--high-z-index {
+  position: relative;
+  z-index: 30;
 }
 
 .card__review-text2--grey100 {
@@ -202,11 +248,6 @@ body {
   color: var(--grey-400);
 }
 
-.card__student-photo--purple500-border {
-  border: 2px solid var(--purple-500);
-  box-sizing: content-box;
-}
-
 .card__verified-graduate--white {
   color: var(--white);
 }
@@ -215,24 +256,36 @@ body {
   color: var(--grey-200);
 }
 
-@media /*change*/(min-width: 1px) {
+
+
+
+
+@media /*change*/(min-width: 800px) {
   .grid-container/*change*/ {
     width: 647px;
     height: 1157px;
     grid-template-columns: 307.5px 307.5px;
-    grid-template-rows: 270px 246px 270px 275px;
+    grid-template-rows: repeat(4, auto);
     grid-template-areas: 
     "daniel daniel"
     "jonathan jeanette"
     "patrick patrick"
     "kira kira";
-    border: 1px solid red;
+    margin-top: 83px;
+    margin-bottom: 113px;
   }
 
   .card--daniel {
+    position: relative;
     width: 647px;
     height: 270px;
-    margin-top: 83px;
+  }
+
+  .card__quotes-decoration {
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    right: 165px;
   }
 
   .card--jonathan {
@@ -252,10 +305,53 @@ body {
   .card--kira {
     width: 647px;
     height: 275px;
-    margin-bottom: 113px;
   }
+
 }
 
+@media (min-width: 1400px) {
 
+  .grid-container/*change*/ {
+    width: 1114px;
+    height: 582px;
+    grid-template-columns: 255px 253px 255px 255px;
+    grid-template-rows: repeat(2, auto);
+    /*grid-template-rows: 288px 270px;*/
+    grid-template-areas: 
+    "daniel daniel jonathan kira"
+    "jeanette patrick patrick kira";
+    row-gap: 24px;
+    margin-top: 229px;
+    margin-bottom: 218px;
+  }
+
+  .card--daniel {
+    width: 540px;
+    height: 288px;
+  }
+
+  .card__quotes-decoration {
+    right: 60px;
+  }
+
+  .card--jonathan {
+    width: 255px;
+    height: 288px;
+  }
+
+  .card--jeanette {
+    width: 255px;
+    height: 269px;
+  }
+
+  .card--patrick {
+    width: 540px;
+  }
+
+  .card--kira {
+    width: 255px;
+    height: 582px;
+  }
+}
 
 
